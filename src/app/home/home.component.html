@@ -1,0 +1,25 @@
+<h3>
+  Cargamos informacion
+</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">gender</th>
+      <th scope="col">email</th>
+      <th scope="col">phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Data of Registros">
+      <th scope="col"></th>
+      <th scope="col">{{Data.name}}</th>
+      <th scope="col">{{Data.gender}}</th>
+      <th scope="col">{{Data.email}}</th>
+      <th scope="col">{{Data.phone}}</th>
+    </tr>
+  </tbody>
+  </table>
+
