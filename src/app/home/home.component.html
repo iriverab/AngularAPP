@@ -1,12 +1,12 @@
 <h3>
   <div *ngIf="seleccion==null">
-      Cargamos informacion
+    Cargamos informacion
   </div>
   <div *ngIf="seleccion!=null">
-      Editamos {{seleccion.name}}
-  </div>  
+    Editamos {{seleccion.name}}
+  </div>
 </h3>
-
+<button class="btn btn-info" (click)="Nuevo()">Agregar Registro</button>
 <table class="table table-hover" *ngIf="seleccion==null">
   <thead>
     <tr>
@@ -29,7 +29,7 @@
       </th>
     </tr>
   </tbody>
-  </table>
+</table>
 <div *ngIf="seleccion!=null">
   <app-formulario [contact]="seleccion" (salida)="Terminar()"></app-formulario>
 </div>
