@@ -9,11 +9,11 @@ import { ContactoService } from '../contacto.service';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
-  @Input() contact;
-  @Output() salida = new EventEmitter();
+  @Input() contact; // Input contacto con el contenido de la varibale pasada desde quien invoca
+  @Output() salida = new EventEmitter(); //evento que gatillara el emitter.
 
   Respuesta;
-
+  //Definimos el formulario reactivo para luego validar el submit
   profileForm = new FormGroup({
     name: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
@@ -24,21 +24,22 @@ export class FormularioComponent implements OnInit {
   constructor(private service: ContactoService) { }
 
   ngOnInit() {
-    //console.log(this.contact);
-    if (this.contact) {
-      this.profileForm.value.name = this.contact.name;
-    }
+    // if (this.contact) {
+    //   this.profileForm.value.name = this.contact.name;
+    // }
   }
 
   onSubmit() {
+    //si existe contacto id solo actualizamos en caso diferente realizamos el insert mediante la api
+    //this.salida.emit(); este comando envia un emitter para que la pagina que invoco el componente
+    //sepa que debe realizar dicha accion
     if (this.contact._id) {
       this.service.Actualizar(this.contact).subscribe(res => {
         this.Respuesta = res;
         this.salida.emit();
       });
     }
-    else
-    {
+    else {
       this.service.Ingresar(this.contact).subscribe(res => {
         this.Respuesta = res;
         this.salida.emit();

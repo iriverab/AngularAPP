@@ -8,6 +8,9 @@ import { HttpClientModule }    from '@angular/common/http';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+/*Declarations : los componentes que se utilzan 
+  imports los modulos a ocupar
+  */
 @NgModule({
   declarations: [
     AppComponent,
