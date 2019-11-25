@@ -10,7 +10,6 @@
 <table class="table table-hover" *ngIf="seleccion==null">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Nombre</th>
       <th scope="col">Genero</th>
       <th scope="col">Email</th>
@@ -20,12 +19,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let Data of Registros">
-      <th scope="col"></th>
       <th scope="col">{{Data.name}}</th>
       <th scope="col">{{Data.gender}}</th>
       <th scope="col">{{Data.email}}</th>
       <th scope="col">{{Data.phone}}</th>
-      <th><a class="btn btn-success" (click)="Editar(Data)">Editar</a></th>
+      <th>
+        <a class="btn btn-success" (click)="Editar(Data)">Edit</a>
+        <a class="btn btn-danger" (click)="Eliminar(Data)">Delete</a>
+      </th>
     </tr>
   </tbody>
   </table>

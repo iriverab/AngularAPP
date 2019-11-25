@@ -13,6 +13,11 @@ export class HomeComponent implements OnInit {
   constructor(private service:ContactoService) { }
 
   ngOnInit() {
+    this.cargarData();
+  }
+
+  cargarData()
+  {
     this.seleccion = null;
     this.service.getData().subscribe(res => {
       this.Registros = res["data"];
@@ -23,6 +28,17 @@ export class HomeComponent implements OnInit {
   Editar(data:contact)
   {
     this.seleccion = data;
+  }
+
+  Eliminar(data:contact)
+  {
+    if(confirm("Esta seguro de eliminar este Registro?"))
+      this.service.eliminar(data).subscribe(res => {
+        alert("Registro Grabado correctamente!");
+        this.cargarData();
+      });
+    else
+      alert("Muy sabia determinación");
   }
 
   Terminar()

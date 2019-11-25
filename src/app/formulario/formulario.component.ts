@@ -36,10 +36,11 @@ export class FormularioComponent implements OnInit {
     //console.log(this.profileForm.value.name);
     this.service.Actualizar(this.contact).subscribe(res => {
       this.Respuesta = res;
-      console.log(this.Respuesta);
-    });;
+      this.salida.emit();
+      //console.log(this.Respuesta);
+    });
     //console.log(this.contact);
-    //this.salida.emit();
+    this.salida.emit();
   }
 
 }
