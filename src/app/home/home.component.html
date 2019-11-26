@@ -6,7 +6,7 @@
     Editamos {{seleccion.name}}
   </div>
 </h3>
-<button class="btn btn-info" (click)="Nuevo()">Agregar Registro</button>
+<button class="btn btn-info" (click)="Nuevo()" *ngIf="seleccion==null">Agregar Registro</button>
 <table class="table table-hover" *ngIf="seleccion==null">
   <thead>
     <tr>
